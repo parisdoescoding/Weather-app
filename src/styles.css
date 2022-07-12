@@ -75,4 +75,10 @@ input {
   .carousel-inner {
     font-family: "Kdam Thmor Pro", sans-serif;
   }
-  
+ .open-source {
+   color: white;
+ } 
+ a:hover {
+  color: red;
+  transition: 2s;
+}
