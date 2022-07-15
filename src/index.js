@@ -105,5 +105,5 @@ function searchCity(event) {
 
 
   let iconElement = document.querySelector("#icon");
-  iconElement.setAttribute("scr", `http://openweathermap.org/img/wn/04d@2x.png`);
-  
+  iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}02x.png`);
+  iconElement.setAttribute("alt",response.data.weather[0].description);
