@@ -82,3 +82,7 @@ input {
   color: red;
   transition: 2s;
 }
+
+footer{
+  padding-top: 70px;
+}
