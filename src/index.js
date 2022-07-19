@@ -122,7 +122,7 @@ function displayFahrenheitTemperature(event){
   temperatureElement.innerHTML = Math.round (fahrenheitTemperature);
 }
 
-let temperatureElement = null;
+
 
 
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
