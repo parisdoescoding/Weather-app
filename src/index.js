@@ -67,7 +67,7 @@ function searchCity(event) {
     console.log(response.data);
     let temperatureElement = document.querySelector(".temperature");
     let temperature = Math.round(response.data.main.temp);
-    temperatureElement.innerHTML = `${temperature}°C`;
+    temperatureElement.innerHTML = `${temperature}`;
     document.querySelector("#current-city").innerHTML = response.data.name;
     let humidityElement = document.querySelector("#humidity");
     let humidity = Math.round(response.data.main.humidity);
@@ -77,6 +77,8 @@ function searchCity(event) {
     windElement.innerHTML = `${wind}`;
     let iconElement = document.querySelector("#icon");
     iconElement.setAttribute("src",`http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+
+    celsiusTemperature = response.data.main.temp;
   }
   
   function search(event) {
@@ -91,23 +93,40 @@ function searchCity(event) {
   
   form.addEventListener("submit", search);
   
-  function searchLocation(position) {
-    let apiKey = "e415f3a15e30e3c0aed9dae29f1ce456";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon${position.coords.longitude}
-    &appid=${apiKey}&units=metric`;
-    axios.get(apiUrl).then(displayWeather);
-  }
-  
-  function getCurrentLocation(event) {
-    event.preventDefault();
-    navigator.geolocation.getCurrentPosition(searchLocation);
-    getCurrentLocation.innerHTML = (response.data.name);
+//current Location
 
-  }
-  let currentLocationButton = document.querySelector("#current-location");
-  
-  currentLocationButton.addEventListener("click", getCurrentLocation);
-  
+function searchLocation(position) {
+  let apiKey = "e415f3a15e30e3c0aed9dae29f1ce456";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${
+    position.coords.latitude
+  }&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
 
-  
-  
+  axios.get(apiUrl).then(displayWeather);
+}
+
+function getCurrentLocation(event) {
+  event.preventDefault();
+  navigator.geolocation.getCurrentPosition(searchLocation);
+}
+
+let currentLocationButton = document.querySelector("#current-location");
+currentLocationButton.addEventListener("click", getCurrentLocation);
+ 
+
+//Coverting Celcius/Fahrenheit
+
+function displayFahrenheitTemperature(event){
+  event.preventDefault();
+  let temperatureElement = document.querySelector(".temperature");
+  let fahrenheitTemperature = (temperatureElement.innerHTML* 9) / 5+32;
+  temperatureElement.innerHTML = Math.round (fahrenheitTemperature);
+}
+
+let temperatureElement = null;
+
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
+
+let celsuisLink = document.querySelector("#celsius-link");
+celsuisLink.addEventListener("click", displayCelsiusTemperature)
