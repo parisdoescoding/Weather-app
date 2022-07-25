@@ -52,89 +52,51 @@ function formatDay(timestamp) {
 }
   
 function displayForecast(response) {
+  console.log(response.data.daily);
   let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
   
   let forecastHTML = "";
   forecast.forEach(function (forecastDay, index){
-    if (index <6) {
+    if (index <7) {
   forecastHTML = forecastHTML +`
-
-  <div class="carousel-inner">
-  <div class="carousel-item active">
-    <div class="d-flex justify-content-around text-center mb-4 pb-3 pt-2">
-      <div class="flex-column">
-        <p class="weather-forecast-temperatures"><strong>21°C</strong></p>
-        <i class="fas fa-sun fa-2x mb-3" style="color: #ddd;">   <img
-        src="http://openweathermap.org/img/wn/${
-          forecastDay.weather[0].icon
-        }@2x.png"
-        alt=""
-        width="42"
-      /></i>
-        <p class="weather-forecast-date"><strong>${formatDay(forecastDay.dt)}</strong></p>
+  <div class="card mb-1" style="border-radius: 25px;">
+   <div class="card-body p-1">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <div class="d-flex justify-content-around text-center mb-1 pb-1 pt-2">
+          <div class="flex-column">
+            <p class="weather-forecast-temperatures">${Math.round(
+              forecastDay.temp.max)}°</p>
+           <img src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png"
+            alt=""
+            width="42"
+          /></i>
+            <p class="weather-forecast-date"><strong>${formatDay(forecastDay.dt)}</strong></p>
+          </div>
+        </div>
       </div>
-      <div class="flex-column">
-        <p class="weather-forecast-temperatures"><strong>${Math.round(
-          forecastDay.temp.max
-        )}°</strong></p>
-        <i class="fas fa-sun fa-2x mb-3" style="color: #ddd;">   <img
-        src="http://openweathermap.org/img/wn/${
-          forecastDay.weather[0].icon
-        }@2x.png"
-        alt=""
-        width="42"
-      /></i>
-        <p class="weather-forecast-date"><strong>${formatDay(forecastDay.dt)}</strong></p>
-      </div>
-      <div class="flex-column">
-        <p class="weather-forecast-temperatures"><strong><span class="weather-forecast-temperature-max"> ${Math.round(
-          forecastDay.temp.max
-        )}° </span></strong></p>
-        <i class="fas fa-cloud fa-2x mb-3" style="color: #ddd;">   <img
-        src="http://openweathermap.org/img/wn/${
-          forecastDay.weather[0].icon
-        }@2x.png"
-        alt=""
-        width="42"
-      /></i>
-        <p class="weather-forecast-date"><strong>${formatDay(forecastDay.dt)}</strong></p>
-      </div>
-      <div class="flex-column">
-        <p class="weather-forecast-temperatures"><strong><span class="weather-forecast-temperature-max"> ${Math.round(
-          forecastDay.temp.max
-        )}° </span></strong></p>
-        <i class="fas fa-cloud fa-2x mb-3" style="color: #ddd;">   <img
-        src="http://openweathermap.org/img/wn/${
-          forecastDay.weather[0].icon
-        }@2x.png"
-        alt=""
-        width="42"
-      /></i>
-        <p class="weather-forecast-date"><strong>${formatDay(forecastDay.dt)}</strong></p>
-      </div>
-      <div class="flex-column">
-        <p class="weather-forecast-temperatures"><strong><span class="weather-forecast-temperature-max"> ${Math.round(
-          forecastDay.temp.max
-        )}° </span></strong></p>
-        <i class="fas fa-cloud-showers-heavy fa-2x mb-3" style="color: #ddd;">   <img
-        src="http://openweathermap.org/img/wn/${
-          forecastDay.weather[0].icon
-        }@2x.png"
-        alt=""
-        width="42"
-      /></i>
-        <p class="weather-forecast-date"><strong>${formatDay(forecastDay.dt)}</strong></p>
-      </div>
+     </div>
     </div>
   </div>
-</div>
+ 
 `;
     }
   });
-
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
 }
 
+function formatDate(timestamp){
+  let date = newDate(timestamp);
+  lethours = date.getHours();
+  if (hours <10){
+    let minutes = date.getminutes();
+    if (minutes <10) {
+      minutes = `0${minutes}`;
+    }
+  }
+}
   let days = [
     "Sunday",
     "Monday",
