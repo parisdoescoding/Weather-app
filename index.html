@@ -49,7 +49,7 @@
       
                   <div id="demo1" class="carousel slide" data-ride="carousel">
                     <!-- Indicators -->
-                    <ul class="carousel-indicators mb-0">
+                    <ul class="carousel-indicators weather-forecast-date">
                       <li data-target="#demo1" data-slide-to="0" class="active"></li>
                       <li data-target="#demo1" data-slide-to="1"></li>
                       <li data-target="#demo1" data-slide-to="2"></li>
@@ -89,50 +89,53 @@
       
                 </div>
               </div>
-      
+             
               <div class="card mb-4" style="border-radius: 25px;">
                 <div class="card-body p-4">
       
                   <div id="demo2" class="carousel slide" data-ride="carousel">
                     <!-- Indicators -->
-                    <ul class="carousel-indicators mb-0">
+                   <div class="weather-forecast" id="forecast"> 
+                    <ul class="carousel-indicators weather-forecast-date">
                       <li data-target="#demo2" data-slide-to="0"></li>
                       <li data-target="#demo2" data-slide-to="1" class="active"></li>
                       <li data-target="#demo2" data-slide-to="2"></li>
                     </ul>
+                  
                     <!-- Carousel inner -->
+                 
                     <div class="carousel-inner">
                       <div class="carousel-item active">
                         <div class="d-flex justify-content-around text-center mb-4 pb-3 pt-2">
                           <div class="flex-column">
-                            <p class="small"><strong>21°C</strong></p>
+                            <p class="weather-forecast-temperatures"><strong>21°C</strong></p>
                             <i class="fas fa-sun fa-2x mb-3" style="color: #ddd;"></i>
-                            <p class="mb-0"><strong>12:00</strong></p>
-                            <p class="mb-0 text-muted" style="font-size: .65rem;">PM</p>
+                            <p class="weather-forecast-date"><strong>12:00</strong></p>
+                            <p class="weather-forecast-date text-muted" style="font-size: .65rem;">PM</p>
                           </div>
                           <div class="flex-column">
-                            <p class="small"><strong>2°C</strong></p>
+                            <p class="weather-forecast-temperatures"><strong>2°C</strong></p>
                             <i class="fas fa-sun fa-2x mb-3" style="color: #ddd;"></i>
-                            <p class="mb-0"><strong>13:00</strong></p>
-                            <p class="mb-0 text-muted" style="font-size: .65rem;">PM</p>
+                            <p class="weather-forecast-date"><strong>13:00</strong></p>
+                            <p class="weather-forecast-date text-muted" style="font-size: .65rem;">PM</p>
                           </div>
                           <div class="flex-column">
-                            <p class="small"><strong>20°C</strong></p>
+                            <p class="weather-forecast-temperatures"><strong>20°C</strong></p>
                             <i class="fas fa-cloud fa-2x mb-3" style="color: #ddd;"></i>
-                            <p class="mb-0"><strong>14:00</strong></p>
-                            <p class="mb-0 text-muted" style="font-size: .65rem;">PM</p>
+                            <p class="weather-forecast-date"><strong>14:00</strong></p>
+                            <p class="weather-forecast-date text-muted" style="font-size: .65rem;">PM</p>
                           </div>
                           <div class="flex-column">
-                            <p class="small"><strong>19°C</strong></p>
+                            <p class="weather-forecast-temperatures"><strong>19°C</strong></p>
                             <i class="fas fa-cloud fa-2x mb-3" style="color: #ddd;"></i>
-                            <p class="mb-0"><strong>15:00</strong></p>
-                            <p class="mb-0 text-muted" style="font-size: .65rem;">PM</p>
+                            <p class="weather-forecast-date"><strong>15:00</strong></p>
+                            <p class="weather-forecast-date text-muted" style="font-size: .65rem;">PM</p>
                           </div>
                           <div class="flex-column">
-                            <p class="small"><strong>18°C</strong></p>
+                            <p class="weather-forecast-temperatures"><strong>18°C</strong></p>
                             <i class="fas fa-cloud-showers-heavy fa-2x mb-3" style="color: #ddd;"></i>
-                            <p class="mb-0"><strong>16:00</strong></p>
-                            <p class="mb-0 text-muted" style="font-size: .65rem;">PM</p>
+                            <p class="weather-forecast-date"><strong>16:00</strong></p>
+                            <p class="weather-forecast-date text-muted" style="font-size: .65rem;">PM</p>
                           </div>
                         </div>
                       </div>
@@ -141,49 +144,23 @@
       
                 </div>
               </div>
+              </div>
       
               <div class="card" style="border-radius: 25px;">
                 <div class="card-body p-4">
+
+                  
       
                   <div id="demo3" class="carousel slide" data-ride="carousel">
                     <!-- Indicators -->
-                    <ul class="carousel-indicators mb-0">
+                    <ul class="carousel-indicators weather-forecast-date">
                       <li data-target="#demo3" data-slide-to="0"></li>
                       <li data-target="#demo3" data-slide-to="1"></li>
                       <li data-target="#demo3" data-slide-to="2" class="active"></li>
                     </ul>
                     <!-- Carousel inner -->
-                    <div class="carousel-inner">
-                      <div class="carousel-item active">
-                        <div class="d-flex justify-content-around text-center mb-4 pb-3 pt-2">
-                          <div class="flex-column">
-                            <p class="small"><strong>21°C</strong></p>
-                            <i class="fas fa-sun fa-2x mb-3" style="color: #ddd;"></i>
-                            <p class="mb-0"><strong>Mon</strong></p>
-                          </div>
-                          <div class="flex-column">
-                            <p class="small"><strong>20°C</strong></p>
-                            <i class="fas fa-sun fa-2x mb-3" style="color: #ddd;"></i>
-                            <p class="mb-0"><strong>Tue</strong></p>
-                          </div>
-                          <div class="flex-column">
-                            <p class="small"><strong>16°C</strong></p>
-                            <i class="fas fa-cloud fa-2x mb-3" style="color: #ddd;"></i>
-                            <p class="mb-0"><strong>Wed</strong></p>
-                          </div>
-                          <div class="flex-column">
-                            <p class="small"><strong>17°C</strong></p>
-                            <i class="fas fa-cloud fa-2x mb-3" style="color: #ddd;"></i>
-                            <p class="mb-0"><strong>Thu</strong></p>
-                          </div>
-                          <div class="flex-column">
-                            <p class="small"><strong>18°C</strong></p>
-                            <i class="fas fa-cloud-showers-heavy fa-2x mb-3" style="color: #ddd;"></i>
-                            <p class="mb-0"><strong>Fri</strong></p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                 
+
                   </div>
       
                 </div>
@@ -191,6 +168,7 @@
       
             </div>
           </div>
+        </div>
       
         </div></br>
         <footer><a class="open-source" href="https://github.com/parisdoescoding/Weather-app/commit/62700d6364c47e48e77ffabb951afa82d69f8135">Open Source Code </a>Coded by Paris Calin</footer>

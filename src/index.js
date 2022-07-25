@@ -42,11 +42,99 @@ function searchCity(event) {
     "Dec"
   ];
   let month = months[now.getMonth()];
+
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[day];
+}
   
-  function displayForecast(response){
-    console.log(response.data.daily);
-    let forecastElement = document.querySelector("#forecast");
-  }
+function displayForecast(response) {
+  let forecast = response.data.daily;
+  let forecastElement = document.querySelector("#forecast");
+  
+  let forecastHTML = "";
+  forecast.forEach(function (forecastDay, index){
+    if (index <6) {
+  forecastHTML = forecastHTML +`
+
+  <div class="carousel-inner">
+  <div class="carousel-item active">
+    <div class="d-flex justify-content-around text-center mb-4 pb-3 pt-2">
+      <div class="flex-column">
+        <p class="weather-forecast-temperatures"><strong>21°C</strong></p>
+        <i class="fas fa-sun fa-2x mb-3" style="color: #ddd;">   <img
+        src="http://openweathermap.org/img/wn/${
+          forecastDay.weather[0].icon
+        }@2x.png"
+        alt=""
+        width="42"
+      /></i>
+        <p class="weather-forecast-date"><strong>${formatDay(forecastDay.dt)}</strong></p>
+      </div>
+      <div class="flex-column">
+        <p class="weather-forecast-temperatures"><strong>${Math.round(
+          forecastDay.temp.max
+        )}°</strong></p>
+        <i class="fas fa-sun fa-2x mb-3" style="color: #ddd;">   <img
+        src="http://openweathermap.org/img/wn/${
+          forecastDay.weather[0].icon
+        }@2x.png"
+        alt=""
+        width="42"
+      /></i>
+        <p class="weather-forecast-date"><strong>${formatDay(forecastDay.dt)}</strong></p>
+      </div>
+      <div class="flex-column">
+        <p class="weather-forecast-temperatures"><strong><span class="weather-forecast-temperature-max"> ${Math.round(
+          forecastDay.temp.max
+        )}° </span></strong></p>
+        <i class="fas fa-cloud fa-2x mb-3" style="color: #ddd;">   <img
+        src="http://openweathermap.org/img/wn/${
+          forecastDay.weather[0].icon
+        }@2x.png"
+        alt=""
+        width="42"
+      /></i>
+        <p class="weather-forecast-date"><strong>${formatDay(forecastDay.dt)}</strong></p>
+      </div>
+      <div class="flex-column">
+        <p class="weather-forecast-temperatures"><strong><span class="weather-forecast-temperature-max"> ${Math.round(
+          forecastDay.temp.max
+        )}° </span></strong></p>
+        <i class="fas fa-cloud fa-2x mb-3" style="color: #ddd;">   <img
+        src="http://openweathermap.org/img/wn/${
+          forecastDay.weather[0].icon
+        }@2x.png"
+        alt=""
+        width="42"
+      /></i>
+        <p class="weather-forecast-date"><strong>${formatDay(forecastDay.dt)}</strong></p>
+      </div>
+      <div class="flex-column">
+        <p class="weather-forecast-temperatures"><strong><span class="weather-forecast-temperature-max"> ${Math.round(
+          forecastDay.temp.max
+        )}° </span></strong></p>
+        <i class="fas fa-cloud-showers-heavy fa-2x mb-3" style="color: #ddd;">   <img
+        src="http://openweathermap.org/img/wn/${
+          forecastDay.weather[0].icon
+        }@2x.png"
+        alt=""
+        width="42"
+      /></i>
+        <p class="weather-forecast-date"><strong>${formatDay(forecastDay.dt)}</strong></p>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+    }
+  });
+
+}
+
   let days = [
     "Sunday",
     "Monday",
@@ -68,10 +156,8 @@ function searchCity(event) {
   h4.innerHTML = `${hours}:${minutes}`;
   
   function getForecast(coordinates){
-    console.log(coordinates);
     let apiKey = "e415f3a15e30e3c0aed9dae29f1ce456";
-    let apiURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&unit=metric`
-    console.log(apiURL);
+    let apiURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&unit=metric`;
     axios.get(apiURL).then(displayForecast);
   }
   
@@ -93,6 +179,7 @@ function searchCity(event) {
     celsiusTemperature = response.data.main.temp;
 
     getForecast(response.data.coord);
+    
   }
   
   function search(event) {
@@ -135,7 +222,6 @@ function displayFahrenheitTemperature(event){
   let fahrenheitTemperature = (temperatureElement.innerHTML* 9) / 5+32;
   temperatureElement.innerHTML = Math.round (fahrenheitTemperature);
 }
-
 
 
 
